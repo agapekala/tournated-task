@@ -1,3 +1,5 @@
+"use client";
+
 import { Button as ButtonUI } from "@nextui-org/react";
 
 type ButtonProps = {

@@ -1,7 +1,7 @@
 "use client";
 
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Input } from "@nextui-org/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export default function SearchField() {
   return (
@@ -12,7 +12,7 @@ export default function SearchField() {
       }}
       endContent={
         <button
-          aria-label="toggle password visibility"
+          aria-label="search"
           className="focus:outline-none"
           type="button"
         >

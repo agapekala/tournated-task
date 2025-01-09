@@ -1,4 +1,4 @@
-import { IMatch } from "../_lib/types/Match";
+import { IMatch } from "@/_lib/types/Match";
 
 export type MatchResult = {
   winningTeam: number | null;

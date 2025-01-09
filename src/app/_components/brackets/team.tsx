@@ -1,7 +1,9 @@
-import Flags from "country-flag-icons/react/3x2";
-import { MapPinIcon, BuildingOffice2Icon } from "@heroicons/react/24/solid";
-import { ITeam, LocationType, QualificationTag } from "@/app/_lib/types/Team";
 import { ReactElement } from "react";
+
+import Flags from "country-flag-icons/react/3x2";
+import { ITeam, LocationType, QualificationTag } from "@/_lib/types/Team";
+import { BuildingOffice2Icon, MapPinIcon } from "@heroicons/react/24/solid";
+import styles from "@/_styles/brackets.module.css";
 
 type TeamProps = {
   team: ITeam;
@@ -37,11 +39,13 @@ const TeamData = ({ team, isWinner }: { team: ITeam; isWinner: boolean }) => {
   };
 
   return (
-    <div className="grid grid-cols-auto grid-rows-auto gap-0 w-fit py-2 text-sm">
+    <div className="grid grid-cols-auto items-center grid-rows-auto gap-0 w-fit py-2 text-sm">
       <p className="whitespace-nowrap col-start-1 col-span-1 row-start-1 row-span-1 px-2">
         {team.id}
       </p>
-      <div className="flag col-start-2 col-span-1 row-start-1 row-span-1">
+      <div
+        className={`${styles.flag} col-start-2 col-span-1 row-start-1 row-span-1`}
+      >
         <Flag countryCode={team.flag} />
       </div>
       <div className="whitespace-nowrap flex gap-1 items-center col-start-3 col-span-1 row-start-1 row-span-1 px-2 text-[#425466]">
@@ -59,13 +63,12 @@ const TeamData = ({ team, isWinner }: { team: ITeam; isWinner: boolean }) => {
   );
 };
 
-const ScoreTable = ({
-  team,
-  winRoundIdxs,
-}: {
+type ScoreTableProps = {
   team: ITeam;
   winRoundIdxs: number[];
-}) => {
+};
+
+const ScoreTable = ({ team, winRoundIdxs }: ScoreTableProps) => {
   return (
     <div className="flex">
       {team.scores.map((score, scoreIdx) => (

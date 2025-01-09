@@ -1,5 +1,5 @@
-import { IMatch } from "../types/Match";
-import { LocationType, QualificationTag } from "../types/Team";
+import { IMatch } from "@/_lib/types/Match";
+import { LocationType, QualificationTag } from "@/_lib/types/Team";
 
 export const matchesDummy: IMatch[] = [
   {

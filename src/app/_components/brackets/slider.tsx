@@ -1,20 +1,21 @@
 "use client";
 
-import { Slider, SliderValue } from "@nextui-org/slider";
 import { useState } from "react";
 
-interface BracketsSliderProps {
-  updateValueAction: (newValue: number) => void;
-  calculatePlayersNumberAction: (value: number) => void;
+import { Slider, SliderValue } from "@nextui-org/slider";
+
+type BracketsSliderProps = {
   maxSliderValue: number;
   defaultValue: number;
-}
+  updateValueAction: (newValue: number) => void;
+  calculatePlayersNumberAction: (value: number) => void;
+};
 
 export default function BracketsSlider({
-  updateValueAction,
-  calculatePlayersNumberAction,
   maxSliderValue,
   defaultValue,
+  updateValueAction,
+  calculatePlayersNumberAction,
 }: BracketsSliderProps) {
   const [value, setValue] = useState<number>(defaultValue);
 
@@ -40,7 +41,9 @@ export default function BracketsSlider({
         value={value}
         onChange={handleSliderChange}
         aria-label="Number of players"
-        getValue={(value) => `${calculatePlayersNumberAction(Number(value))}`}
+        getValue={(value: SliderValue) =>
+          `${calculatePlayersNumberAction(Number(value))}`
+        }
       />
     </div>
   );

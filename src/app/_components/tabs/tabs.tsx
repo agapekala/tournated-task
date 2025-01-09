@@ -1,8 +1,9 @@
 "use client";
 
-import { Tabs as TabsUI, Tab } from "@nextui-org/react";
-import Draws from "./draws/draws";
 import { NextUIProvider } from "@nextui-org/react";
+import { Tab, Tabs as TabsUI } from "@nextui-org/react";
+
+import Draws from "./draws/draws";
 
 export default function Tabs() {
   return (

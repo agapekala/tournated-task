@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { IRound } from "../../_lib/types/Round";
-import { IMatch } from "../../_lib/types/Match";
-import { roundTitles } from "../../_lib/data/roundTitles";
+import { useCallback, useEffect, useState } from "react";
+
+import { IRound } from "@/_lib/types/Round";
+import { IMatch } from "@/_lib/types/Match";
+import { roundTitles } from "@/_lib/data/roundTitles";
 
 export default function useRounds(playersNum: number, matchesData: IMatch[]) {
   const [rounds, setRounds] = useState<IRound[]>([]);
@@ -9,12 +10,15 @@ export default function useRounds(playersNum: number, matchesData: IMatch[]) {
   const calculateRoundsNum = (players: number): number =>
     Math.ceil(Math.log2(players));
 
-  const calculateMatchesInRound = (roundIndex: number): number => {
-    const teamsInRound = Math.floor(playersNum / Math.pow(2, roundIndex));
-    return Math.floor(teamsInRound / 2);
-  };
+  const calculateMatchesInRound = useCallback(
+    (roundIndex: number): number => {
+      const teamsInRound = Math.floor(playersNum / Math.pow(2, roundIndex));
+      return Math.floor(teamsInRound / 2);
+    },
+    [playersNum]
+  );
 
-  const generateRounds = () => {
+  const generateRounds = useCallback((): IRound[] => {
     const totalRounds = calculateRoundsNum(playersNum);
     const result: IRound[] = [];
     let startIdx = 0;
@@ -27,7 +31,7 @@ export default function useRounds(playersNum: number, matchesData: IMatch[]) {
     }
 
     return result;
-  };
+  }, [playersNum, matchesData, calculateMatchesInRound]);
 
   const createRound = (
     roundIndex: number,
@@ -43,7 +47,7 @@ export default function useRounds(playersNum: number, matchesData: IMatch[]) {
       const rounds = generateRounds();
       setRounds(rounds);
     }
-  }, [playersNum, matchesData]);
+  }, [playersNum, matchesData, generateRounds]);
 
   return rounds;
 }

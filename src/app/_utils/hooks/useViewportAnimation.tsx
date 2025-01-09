@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useInView as useInViewIO } from "react-intersection-observer";
 
 const useViewportAnimation = (

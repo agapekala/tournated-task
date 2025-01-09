@@ -1,0 +1,40 @@
+.connector:after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 1.5em;
+  right: 0;
+}
+
+.connector:before {
+  content: "";
+  border-top: 1px solid var(--line-color);
+  position: absolute;
+  top: calc(50% - 8px);
+  width: 1.5em;
+  left: 0;
+}
+
+.connector:nth-child(even):after {
+  border-bottom: 1px solid var(--line-color);
+  top: -7.5px;
+  border-right: 1px solid var(--line-color);
+}
+
+.connector:nth-child(odd):not(:last-child):after {
+  border-top: 1px solid var(--line-color);
+  top: calc(50% - 7.5px);
+  border-right: 1px solid var(--line-color);
+}
+
+.connector:nth-child(even):not(:last-child) {
+  margin-bottom: 4rem;
+}
+
+.flag {
+  @apply h-auto w-4 lg:w-6;
+}
+
+.flag > svg {
+  @apply rounded-sm;
+}

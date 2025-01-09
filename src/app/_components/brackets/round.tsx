@@ -1,26 +1,29 @@
 "use client";
 
-import { IRound } from "@/app/_lib/types/Round";
-import { useAnimate } from "framer-motion";
-import Match from "./match";
-import useViewportAnimation from "@/app/_utils/hooks/useViewportAnimation";
 import clsx from "clsx";
-import { useViewport } from "../../_contexts/ViewportContext";
-import useViewportSize from "@/app/_utils/hooks/useViewportSize";
+import { useAnimate } from "framer-motion";
 
-interface RoundProps {
+import { IRound } from "@/_lib/types/Round";
+import { useViewport } from "@/_contexts/ViewportContext";
+import useViewportSize from "@/_utils/hooks/useViewportSize";
+import useViewportAnimation from "@/_utils/hooks/useViewportAnimation";
+
+import Match from "./match";
+
+type RoundProps = {
   round: IRound;
   roundIdx: number;
   wrapperId: string;
-}
+};
+
+const MAX_HEIGHT: number = 9999;
 
 export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
   const [scope, animate] = useAnimate();
   const { viewportWidth } = useViewport();
   const currentScreenWidth = useViewportSize();
-  const maxHeight = 9999;
 
-  const handleExitLeft = () => {
+  const handleExitLeft = (): void => {
     animate(
       scope.current,
       { display: "none" },
@@ -33,7 +36,7 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
     );
   };
 
-  const handleEnterLeft = () => {
+  const handleEnterLeft = (): void => {
     animate(
       scope.current,
       { display: "flex" },
@@ -41,7 +44,7 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
     );
     animate(
       scope.current,
-      { maxHeight: `${maxHeight}px` },
+      { maxHeight: `${MAX_HEIGHT}px` },
       { duration: 0.5, ease: "easeOut" }
     );
   };
@@ -52,10 +55,10 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
     handleExitLeft
   );
 
-  const roundClass = clsx(
-    `flex flex-col snap-start h-auto max-h-[${maxHeight}px]`,
+  const roundClass: string = clsx(
+    `flex flex-col snap-start h-auto max-h-[${MAX_HEIGHT}px]`,
     {
-      "full-width": currentScreenWidth <= viewportWidth,
+      "flex-none w-full": currentScreenWidth <= viewportWidth,
       "flex-1": currentScreenWidth > viewportWidth,
     }
   );
@@ -72,7 +75,7 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
 
       <div
         ref={scope}
-        style={{ maxHeight: `${maxHeight}px` }}
+        style={{ maxHeight: `${MAX_HEIGHT}px` }}
         className="flex flex-col flex-1"
       >
         {round.matches.map((match) => (

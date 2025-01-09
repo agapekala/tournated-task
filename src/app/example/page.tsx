@@ -1,4 +1,4 @@
-import Tabs from "../_components/tabs/tabs";
+import Tabs from "@/_components/tabs/tabs";
 
 export default function Page() {
   return (

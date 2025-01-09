@@ -1,13 +1,20 @@
 "use client";
 
-import { matchesDummy } from "@/app/_lib/data/matchesData";
+import { IMatch } from "@/_lib/types/Match";
+import { IRound } from "@/_lib/types/Round";
+import useRounds from "@/_utils/hooks/useRounds";
+
 import Round from "./round";
-import useRounds from "@/app/_utils/hooks/useRounds";
 
 const WRAPPER_ID: string = "generator";
 
-export default function Generator({ playersNum }: { playersNum: number }) {
-  const rounds = useRounds(playersNum, matchesDummy);
+type GeneratorProps = {
+  playersNum: number;
+  matchesData: IMatch[];
+};
+
+export default function Generator({ playersNum, matchesData }: GeneratorProps) {
+  const rounds: IRound[] = useRounds(playersNum, matchesData);
 
   return (
     <div

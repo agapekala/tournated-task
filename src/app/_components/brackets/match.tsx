@@ -1,17 +1,21 @@
-import { IMatch } from "@/app/_lib/types/Match";
-import Team from "./team";
-import { analyzeMatch, MatchResult } from "@/app/_utils/bracketsUtils";
+import { IMatch } from "@/_lib/types/Match";
+import { analyzeMatch, MatchResult } from "@/_utils/bracketsUtils";
+import styles from "@/_styles/brackets.module.css";
 
-interface MatchProps {
+import Team from "./team";
+
+type MatchProps = {
   match: IMatch;
   roundIdx: number;
-}
+};
 
 export default function Match({ match, roundIdx }: MatchProps) {
   const result: MatchResult = analyzeMatch(match);
 
   return (
-    <div className="flex-1 flex w-full items-center py-4 px-[1.5em] relative connector">
+    <div
+      className={`flex-1 flex w-full items-center py-4 px-[1.5em] relative ${styles.connector}`}
+    >
       <div className="w-full">
         <div className="text-center border-2 border-slate-100 rounded-md min-w-80 bg-white">
           <Team
@@ -38,7 +42,7 @@ const MatchFooter = ({ match, roundIdx }: MatchProps) => {
       <span>
         Round {roundIdx + 1} - {match.date || ""} - {match.location}
       </span>
-      <span>View Details</span>
+      <a href="">View Details</a>
     </div>
   );
 };

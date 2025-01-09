@@ -1,8 +1,8 @@
-import Button from "../general/button";
-import { ArrowUpTrayIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import Button from "@/_components/general/button";
+import SearchField from "@/_components/general/searchField";
+import SelectField from "@/_components/general/selectField";
 import { DocumentIcon } from "@heroicons/react/24/outline";
-import SearchField from "../general/searchField";
-import SelectField from "../general/selectField";
+import { ArrowUpTrayIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export default function Header() {
   return (
