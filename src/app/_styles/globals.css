@@ -4,9 +4,10 @@
 
 :root {
   --background: theme(colors.zinc.50);
-  --foreground: theme(colors.slate.600);
+  --foreground: #0a2540;
   --line-color: theme(colors.neutral.200);
   --text-secondary: #0a254059;
+  --text-button: "rgba(10, 37, 64, 0.75)";
   --accent: #ff5733;
 }
 
@@ -53,9 +54,21 @@ body {
 }
 
 .connector:nth-child(even):not(:last-child) {
-  padding-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .winner {
-  @apply text-accent bg-gradient-to-t from-orange-50 to-white;
+  @apply text-accent-500 bg-gradient-to-t from-accent-100 to-white;
+}
+
+.flag {
+  @apply h-auto w-4 lg:w-6;
+}
+
+.flag > svg {
+  @apply rounded-sm;
+}
+
+.full-width {
+  @apply flex-none w-full;
 }

@@ -8,7 +8,7 @@ const useViewportAnimation = (
 ) => {
   const [ref, inView, entry] = useInViewIO({
     root: document.getElementById(wrapperId),
-    rootMargin: "0px 0px 0px -20px",
+    rootMargin: "0px 0px 0px -50px",
     threshold: 0,
   });
 
@@ -18,7 +18,10 @@ const useViewportAnimation = (
     const { boundingClientRect, rootBounds } = entry;
     if (!rootBounds) return;
 
-    if (inView && boundingClientRect.right > rootBounds.left) {
+    if (
+      boundingClientRect.right > rootBounds.left &&
+      boundingClientRect.right < rootBounds.right
+    ) {
       handleEnterLeft();
     }
 

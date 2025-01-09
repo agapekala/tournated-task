@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,13 +12,29 @@ export default {
     extend: {
       colors: {
         background: "var(--background)",
-        typography: "#45576a",
         foreground: "var(--foreground)",
+        typography: {
+          primary: "var(--foreground)",
+        },
         secondary: "var(--text-secondary)",
-        accent: "var(--accent)",
+        fields: "#445a70",
+        accent: {
+          100: "#ffddd6",
+          200: "#ff8970",
+          500: "#ff5733",
+        },
+        tag: {
+          Q: "#87E178",
+          WC: "#FFC300",
+          LL: "#c084fc",
+          SE: "#85b0f5",
+          PR: "#fb923c",
+        },
       },
     },
   },
   darkMode: "class",
   plugins: [nextui()],
-} satisfies Config;
+};
+
+export default config;

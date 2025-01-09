@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { IRound } from "../_lib/Round";
-import { IMatch } from "../_lib/Match";
+import { IRound } from "../../_lib/types/Round";
+import { IMatch } from "../../_lib/types/Match";
+import { roundTitles } from "../../_lib/data/roundTitles";
 
 export default function useRounds(playersNum: number, matchesData: IMatch[]) {
   const [rounds, setRounds] = useState<IRound[]>([]);
@@ -22,14 +23,18 @@ export default function useRounds(playersNum: number, matchesData: IMatch[]) {
       const matchesNum = calculateMatchesInRound(roundIdx);
       const matches = matchesData.slice(startIdx, startIdx + matchesNum);
       startIdx += matchesNum;
-      result.push(createRound(roundIdx, matches));
+      result.push(createRound(roundIdx, totalRounds, matches));
     }
 
     return result;
   };
 
-  const createRound = (roundIndex: number, matches: IMatch[]): IRound => ({
-    title: `Round ${roundIndex}`,
+  const createRound = (
+    roundIndex: number,
+    totalRounds: number,
+    matches: IMatch[]
+  ): IRound => ({
+    title: roundTitles[totalRounds - roundIndex - 1],
     matches,
   });
 
