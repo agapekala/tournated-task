@@ -74,7 +74,7 @@ export default App;
 
 ```bash
 git clone https://github.com/agapekala/tournated-task.git
-cd tournated
+cd tournated-task
 ```
 
 ## 2. Install dependencies
