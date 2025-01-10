@@ -35,7 +35,7 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
       { maxHeight: "0" },
       { duration: 0.5, ease: "easeOut" }
     );
-    animate(scope.current, { opacity: 0 }, { duration: 0.5, ease: "easeOut" });
+    animate(scope.current, { opacity: 0 });
   };
 
   const handleEnterLeft = (): void => {
@@ -47,9 +47,9 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
     animate(
       scope.current,
       { maxHeight: `${MAX_HEIGHT}px` },
-      { duration: 0.5, ease: "easeOut", delay: 0.5 }
+      { duration: 0.5, ease: "easeOut", delay: 0.2 }
     );
-    animate(scope.current, { opacity: 1 }, { duration: 1, ease: "easeOut" });
+    animate(scope.current, { opacity: 1 }, { duration: 0.8, ease: "easeOut" });
   };
 
   const { ref } = useViewportAnimation(

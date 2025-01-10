@@ -2,7 +2,7 @@ export const metadata = {
   title: "Tournated",
 };
 
-import "@/app/_styles/globals.css";
+import "@/_styles/globals.css";
 import { Inter } from "next/font/google";
 
 const inter = Inter({

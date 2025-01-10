@@ -11,7 +11,6 @@ import BracketsSlider from "./slider";
 
 type BracketsProps = {
   matchesData: IMatch[];
-  selectedTeamId?: number;
   viewportBreakpoint?: number;
   maxSliderValue?: number;
 };

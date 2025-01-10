@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tournament Bracket Component
 
-## Getting Started
+A responsive and customizable [Next.js](https://nextjs.org) component for generating tournament brackets based on player and match data. It includes a slider to select the number of players and adapts seamlessly to different screen sizes.
 
-First, run the development server:
+## Features
+
+- **Player Slider**: Dynamically adjust the number of players in the bracket.
+- **Responsive Design**: Automatically switches to a single-column view for smaller screens.
+- **Flexible Data**: Bracket generation based on provided match data.
+
+## Props
+
+| Name                 | Type     | Description                                                                   | Default          |
+| -------------------- | -------- | ----------------------------------------------------------------------------- | ---------------- |
+| `matchData`          | `array`  | Match data to generate the tournament bracket.                                | **Required**     |
+| `viewPortBreakPoint` | `number` | Screen width (in pixels) below which the bracket uses a single-column layout. | `768px`          |
+| `maxSliderValue`     | `number` | Maximum slider value (controls the max number of players).                    | `5` (32 players) |
+
+## Usage Example
+
+A complete example is available in the `/example` directory. Here's a quick implementation:
+
+```jsx
+import TournamentBracket from "./components/TournamentBracket";
+
+const matchData = [
+  {
+    id: 0,
+    teams: [
+      {
+        id: 1,
+        name: "Team A",
+        location: {
+          type: LocationType.CLUB,
+          name: "Club name",
+        },
+        flag: "PL",
+        scores: [6, 4, 6],
+        qualificationTag: QualificationTag.Q,
+      },
+      {
+        id: 2,
+        name: "Team B",
+        location: {
+          type: LocationType.CITY,
+          name: "City",
+        },
+        flag: "US",
+        scores: [4, 6, 4],
+      },
+    ],
+    date: "January 1, 2025, 16.30",
+    location: "Court 1",
+  },
+  // Additional matches...
+];
+
+function App() {
+  return (
+    <TournamentBracket
+      viewPortBreakPoint={1024}
+      matchData={matchData}
+      maxSliderValue={6} // 64 players
+    />
+  );
+}
+
+export default App;
+```
+
+# Setup Guide
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/agapekala/tournament-bracket.git
+cd tournament-bracket
+```
+
+## 2. Install dependencies
+
+```bash
+npm install
+```
+
+## 3. Run the Development Server
+
+Install all required dependencies:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 3. Run the Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start the development server locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+```
 
-## Learn More
+The application will be available at:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4. Explore the Example
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+An example implementation is available in the /example directory.

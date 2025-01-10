@@ -4,14 +4,20 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Tab, Tabs as TabsUI } from "@nextui-org/react";
 
 import Draws from "./draws/draws";
+import { useState } from "react";
 
 export default function Tabs() {
+  const [selectedTab, setSelectedTab] = useState("draws");
   return (
     <NextUIProvider>
       <div className="flex flex-col gap-4 max-w-full h-full">
         <TabsUI
           variant="underlined"
           className="max-w-full"
+          selectedKey={selectedTab}
+          onSelectionChange={(value: React.Key) =>
+            setSelectedTab(String(value))
+          }
           classNames={{
             base: "border-b",
             tabList: "pb-0",
