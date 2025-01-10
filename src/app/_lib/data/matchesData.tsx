@@ -870,7 +870,7 @@ export const matchesDummy: IMatch[] = [
         id: 160,
         name: "Smith, Hiroshi",
         location: {
-          type: LocationType,
+          type: LocationType.CLUB,
           name: "Name of Club",
         },
         flag: "BR",
