@@ -70,6 +70,20 @@ export default App;
 
 # Setup Guide
 
+## 1. Prerequisites
+
+Before getting started with the project, ensure you have the following installed on your local machine:
+
+- [Node.js](https://nodejs.org/) (v22.12.0)
+- [npm](https://www.npmjs.com/) (v10.2.5)
+
+To check if you have Node.js and npm installed, you can run the following commands in your terminal:
+
+```bash
+node -v
+npm -v
+```
+
 ## 1. Clone the Repository
 
 ```bash
@@ -99,7 +113,7 @@ http://localhost:3000
 
 ## 4. Explore the Example
 
-An example implementation is available in the /example directory.
+An example implementation is available in the src\app\example directory.
 
 # Next Steps
 
