@@ -2,6 +2,7 @@ import React, { createContext, useContext, ReactNode } from "react";
 
 interface ViewportContextType {
   viewportWidth: number;
+  selectedTeamId?: number;
 }
 
 const ViewportContext = createContext<ViewportContextType | undefined>(

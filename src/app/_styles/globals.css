@@ -6,9 +6,7 @@
   --background: theme(colors.zinc.50);
   --foreground: #0a2540;
   --line-color: theme(colors.neutral.200);
-  --text-secondary: #0a254059;
-  --text-button: "rgba(10, 37, 64, 0.75)";
-  --accent: #ff5733;
+  --connector-gap: 1.5em;
 }
 
 @media (prefers-color-scheme: dark) {

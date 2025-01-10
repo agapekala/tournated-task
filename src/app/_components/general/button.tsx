@@ -12,7 +12,7 @@ export default function Button({ children, isIconOnly = false }: ButtonProps) {
     <ButtonUI
       isIconOnly={isIconOnly}
       variant="bordered"
-      className="border rounded-md text-fields"
+      className="border rounded-md text-typography-fields"
     >
       {children}
     </ButtonUI>

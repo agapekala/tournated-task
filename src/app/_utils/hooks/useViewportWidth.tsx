@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useViewportSize = (): number => {
+const useViewportWidth = (): number => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const useViewportSize = (): number => {
   return screenWidth;
 };
 
-export default useViewportSize;
+export default useViewportWidth;

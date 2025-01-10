@@ -1,9 +1,11 @@
 import { ReactElement } from "react";
 
+import clsx from "clsx";
+
 import Flags from "country-flag-icons/react/3x2";
+import styles from "@/_styles/brackets.module.css";
 import { ITeam, LocationType, QualificationTag } from "@/_lib/types/Team";
 import { BuildingOffice2Icon, MapPinIcon } from "@heroicons/react/24/solid";
-import styles from "@/_styles/brackets.module.css";
 
 type TeamProps = {
   team: ITeam;
@@ -39,7 +41,7 @@ const TeamData = ({ team, isWinner }: { team: ITeam; isWinner: boolean }) => {
   };
 
   return (
-    <div className="grid grid-cols-auto items-center grid-rows-auto gap-0 w-fit py-2 text-sm">
+    <div className="grid grid-cols-auto grid-rows-auto items-center w-fit py-2 text-sm">
       <p className="whitespace-nowrap col-start-1 col-span-1 row-start-1 row-span-1 px-2">
         {team.id}
       </p>
@@ -55,9 +57,9 @@ const TeamData = ({ team, isWinner }: { team: ITeam; isWinner: boolean }) => {
         <Tag tag={team.qualificationTag} />
       </div>
 
-      <div className="whitespace-nowrap flex items-center col-start-3 col-span-1 row-start-2 row-span-1 px-2 text-secondary">
+      <div className="whitespace-nowrap flex items-center col-start-3 col-span-1 row-start-2 row-span-1 px-1 text-xs text-typography-teriary">
         {getLocationIcon(team.location.type)}
-        <p className="text-xs">{team.location.name}</p>
+        <p>{team.location.name}</p>
       </div>
     </div>
   );
@@ -75,9 +77,9 @@ const ScoreTable = ({ team, winRoundIdxs }: ScoreTableProps) => {
         <div
           className={`${
             winRoundIdxs.includes(scoreIdx)
-              ? "text-accent-500 bg-gradient-to-t from-orange-50 to-white"
+              ? "text-accent-500 bg-gradient-to-t from-accent-50 to-white"
               : ""
-          } flex items-center border-l px-2 text-sm`}
+          } flex items-center min-w-7 border-l px-2 text-sm`}
           key={scoreIdx}
         >
           {score}
@@ -88,26 +90,14 @@ const ScoreTable = ({ team, winRoundIdxs }: ScoreTableProps) => {
 };
 
 const Tag = ({ tag }: { tag?: QualificationTag }) => {
-  const getTagClass = (qualificationTag: QualificationTag): string => {
-    switch (qualificationTag) {
-      case QualificationTag.LL:
-        return "bg-tag-LL";
-      case QualificationTag.PR:
-        return "bg-tag-PR";
-      case QualificationTag.Q:
-        return "bg-tag-Q";
-      case QualificationTag.SE:
-        return "bg-tag-SE";
-      case QualificationTag.WC:
-        return "bg-tag-WC";
-      default:
-        return "";
-    }
-  };
+  const tagClass = clsx("rounded-sm text-xs px-1 font-semibold", {
+    "bg-tag-LL": tag === QualificationTag.LL,
+    "bg-tag-PR": tag === QualificationTag.PR,
+    "bg-tag-Q": tag === QualificationTag.Q,
+    "bg-tag-SE": tag === QualificationTag.SE,
+    "bg-tag-WC": tag === QualificationTag.WC,
+  });
+
   if (!tag) return;
-  return (
-    <p className={`${getTagClass(tag)} text-xs px-1 rounded-sm font-semibold`}>
-      {tag}
-    </p>
-  );
+  return <p className={tagClass}>{tag}</p>;
 };

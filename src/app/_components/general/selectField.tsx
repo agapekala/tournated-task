@@ -13,7 +13,7 @@ export default function SelectField({ options, label }: SelectFieldProps) {
       className="sm:max-w-xs sm:w-auto w-full min-w-48"
       classNames={{
         trigger: "min-h-10 h-10 rounded-md border shadow-none bg-white",
-        value: "!text-fields text-sm",
+        value: "!text-typography-fields text-sm",
       }}
       defaultSelectedKeys={"0"}
       aria-label={label}

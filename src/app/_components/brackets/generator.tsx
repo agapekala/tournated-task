@@ -19,7 +19,7 @@ export default function Generator({ playersNum, matchesData }: GeneratorProps) {
   return (
     <div
       id={WRAPPER_ID}
-      className="w-full flex flex-1 overflow-auto overflow-y-scroll snap-x snap-mandatory"
+      className="flex flex-1 w-full overflow-auto overflow-y-scroll snap-x snap-mandatory"
     >
       <div className="flex w-full h-fit">
         {rounds.map((round, roundIdx) => (

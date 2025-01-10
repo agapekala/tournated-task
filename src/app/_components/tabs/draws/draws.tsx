@@ -6,7 +6,7 @@ export default function Draws() {
   const predefinedViewportBreakPoint = 768;
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex flex-col h-full ">
       <Header />
       <Brackets
         viewportBreakpoint={predefinedViewportBreakPoint}

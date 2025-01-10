@@ -6,7 +6,7 @@ import { ArrowUpTrayIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export default function Header() {
   return (
-    <div className="flex flex-wrap justify-between gap-2 bg-white rounded-sm p-2 ">
+    <div className="flex flex-wrap justify-between gap-2 p-2 bg-white rounded-sm  ">
       <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto sm:justify-start">
         <h1 className="text-xl font-bold">Draws</h1>
         <div className="flex gap-2">

@@ -16,7 +16,7 @@ export default function SearchField() {
           className="focus:outline-none"
           type="button"
         >
-          <MagnifyingGlassIcon className="w-4 h-4 text-fields" />
+          <MagnifyingGlassIcon className="w-4 h-4 text-typography-fields" />
         </button>
       }
       aria-label="Search Field"

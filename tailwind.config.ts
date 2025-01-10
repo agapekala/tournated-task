@@ -15,10 +15,12 @@ const config: Config = {
         foreground: "var(--foreground)",
         typography: {
           primary: "var(--foreground)",
+          secondary: "#86909F",
+          teriary: "#0a254059",
+          fields: "#445a70",
         },
-        secondary: "var(--text-secondary)",
-        fields: "#445a70",
         accent: {
+          50: "#ffeeeb",
           100: "#ffddd6",
           200: "#ff8970",
           500: "#ff5733",

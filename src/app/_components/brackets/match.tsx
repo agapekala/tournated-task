@@ -1,6 +1,6 @@
 import { IMatch } from "@/_lib/types/Match";
-import { analyzeMatch, MatchResult } from "@/_utils/bracketsUtils";
 import styles from "@/_styles/brackets.module.css";
+import { analyzeMatch, MatchResult } from "@/_utils/bracketsUtils";
 
 import Team from "./team";
 
@@ -14,21 +14,18 @@ export default function Match({ match, roundIdx }: MatchProps) {
 
   return (
     <div
-      className={`flex-1 flex w-full items-center py-4 px-[1.5em] relative ${styles.connector}`}
+      className={`${styles.connector} flex flex-1 w-full items-center py-4 px-[var(--connector-gap)] relative`}
     >
       <div className="w-full">
-        <div className="text-center border-2 border-slate-100 rounded-md min-w-80 bg-white">
-          <Team
-            team={match.teams[0]}
-            winRoundIdxs={result.winningSets[match.teams[0].id]}
-            isWinner={result.winningTeam === match.teams[0].id}
-          />
-
-          <Team
-            team={match.teams[1]}
-            winRoundIdxs={result.winningSets[match.teams[1].id]}
-            isWinner={result.winningTeam === match.teams[1].id}
-          />
+        <div className="min-w-80 text-center border-2 border-slate-100 rounded-md bg-white">
+          {match.teams.map((team) => (
+            <Team
+              key={team.id}
+              team={team}
+              winRoundIdxs={result.winningSets[team.id]}
+              isWinner={result.winningTeam === team.id}
+            />
+          ))}
         </div>
         <MatchFooter match={match} roundIdx={roundIdx} />
       </div>
@@ -38,7 +35,7 @@ export default function Match({ match, roundIdx }: MatchProps) {
 
 const MatchFooter = ({ match, roundIdx }: MatchProps) => {
   return (
-    <div className="flex justify-between whitespace-nowrap text-xs text-[#86909F]">
+    <div className="flex justify-between whitespace-nowrap text-xs text-typography-secondary">
       <span>
         Round {roundIdx + 1} - {match.date || ""} - {match.location}
       </span>
