@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 import clsx from "clsx";
 
-import Flags from "country-flag-icons/react/3x2";
+import * as Flags from "country-flag-icons/react/3x2";
 import styles from "@/_styles/brackets.module.css";
 import { ITeam, LocationType, QualificationTag } from "@/_lib/types/Team";
 import { BuildingOffice2Icon, MapPinIcon } from "@heroicons/react/24/solid";
