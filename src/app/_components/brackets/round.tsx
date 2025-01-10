@@ -10,6 +10,7 @@ import useViewportAnimation from "@/_utils/hooks/useViewportAnimation";
 
 import Match from "./match";
 import React from "react";
+import styles from "@/_styles/brackets.module.css";
 
 type RoundProps = {
   round: IRound;
@@ -59,7 +60,7 @@ export default function Round({ round, roundIdx, wrapperId }: RoundProps) {
   );
 
   const roundClass: string = clsx(
-    `flex flex-col h-auto max-h-[${MAX_HEIGHT}px] snap-start`,
+    `flex flex-col h-auto max-h-[${MAX_HEIGHT}px] snap-start ${styles.roundCol}`,
     {
       "flex-none w-full": currentScreenWidth <= viewportWidth,
       "flex-1": currentScreenWidth > viewportWidth,
