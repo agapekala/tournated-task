@@ -73,8 +73,7 @@ export default App;
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/agapekala/tournated-task
-.git
+git clone https://github.com/agapekala/tournated-task.git
 cd tournated
 ```
 
