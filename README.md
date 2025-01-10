@@ -85,14 +85,6 @@ npm install
 
 ## 3. Run the Development Server
 
-Install all required dependencies:
-
-```bash
-npm run dev
-```
-
-## 3. Run the Development Server
-
 Start the development server locally:
 
 ```bash
