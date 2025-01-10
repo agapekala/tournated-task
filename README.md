@@ -73,8 +73,9 @@ export default App;
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/agapekala/tournament-bracket.git
-cd tournament-bracket
+git clone https://github.com/agapekala/tournated-task
+.git
+cd tournated
 ```
 
 ## 2. Install dependencies
@@ -108,3 +109,30 @@ http://localhost:3000
 ## 4. Explore the Example
 
 An example implementation is available in the /example directory.
+
+# Next Steps
+
+Here are some ideas for extending and improving the component in future iterations:
+
+## 1. Enhanced Customization
+
+Add support for additional styles and themes to provide better customization options. For example, allowing users to pass custom CSS classes or style overrides to fit the component into different design systems.
+
+## 2. Event Handling
+
+Implement event handling for interactions such as clicking on a match or a player's name. This could trigger actions like opening detailed information or navigating to a new view.
+Add features like player search to quickly locate a specific player in the bracket.
+Highlight the path for a specific player, making it easier to trace their progression through the matches.
+
+## 3. Swipeable Views
+
+Add support for "swipeable views," enabling users to navigate through the brackets using touch gestures or mouse drags, in addition to scrolling.
+
+## 4. Accessibility Improvements
+
+Add ARIA roles and other accessibility features to make the component more inclusive and usable for all users, including those using screen readers.
+Testing and Documentation:
+
+## 5. Testing and Documentation
+
+Provide a suite of unit and integration tests to ensure the component works reliably in various scenarios.
